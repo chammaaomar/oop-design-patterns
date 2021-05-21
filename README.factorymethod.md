@@ -1,6 +1,6 @@
 ## Factory Design Patterns
 This document covers the related factory design patterns: _Simple factory_,
-_factory method_ and abstract factory_.
+_factory method_ and _abstract factory_.
 
 Let's start with the simple factory design pattern. The context in which
 this arises in the book is the following: You have a concrete `PizzaStore`
@@ -28,3 +28,20 @@ sharing a single abstraction**. In the above case, it handles the creation
 of `CheesePizza`, `VeggiePizza` ... _etc_, all of which share the `Pizza`
 abstraction. This make the `PizzaStore` simply a client of
 of the `SimplePizzaFactory`, in that it calls its `createPizza` method.
+
+In the above design discussion, notice that we were following the following
+design principle:
+- Identify the parts of your application that can vary, and encapsulate
+them
+
+That's important. We identified, based on the domain logic, that pizza
+creation may vary over time, by offering new pizza types or removing
+existing ones. However, there's nothing wrong depending on a concrete
+class if we think that's unlikely to change. For example, we always
+depend on the `String` class, which is concrete, but that's OK because
+that's pretty stable.
+
+The idea of design patterns is to really make your designs robust
+to change. You shouldn't blindly apply them to your entire codebase,
+which will lead to many abstractions, indirections, worse performance
+and wasting time with little payoff.
