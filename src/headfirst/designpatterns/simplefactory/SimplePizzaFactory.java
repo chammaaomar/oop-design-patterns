@@ -1,4 +1,4 @@
-package headfirst.designpatterns.factory;
+package headfirst.designpatterns.simplefactory;
 
 public class SimplePizzaFactory {
     public Pizza createPizza(PizzaType type) {

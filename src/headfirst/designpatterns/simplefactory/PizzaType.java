@@ -1,4 +1,4 @@
-package headfirst.designpatterns.factory;
+package headfirst.designpatterns.simplefactory;
 
 public enum PizzaType {
     CHEESE,
