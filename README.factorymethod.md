@@ -26,8 +26,8 @@ the `SimplePizzaFactory`.
 **A simple factory handles the creation of a family of concrete products
 sharing a single abstraction**. In the above case, it handles the creation
 of `CheesePizza`, `VeggiePizza` ... _etc_, all of which share the `Pizza`
-abstraction. This make the `PizzaStore` simply a client of
-of the `SimplePizzaFactory`, in that it calls its `createPizza` method.
+abstraction. This make the `PizzaStore` simply a client of the
+`SimplePizzaFactory`, in that it calls its `createPizza` method.
 
 In the above design discussion, notice that we were following the following
 design principle:
