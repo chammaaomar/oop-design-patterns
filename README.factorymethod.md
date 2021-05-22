@@ -57,7 +57,7 @@ success, we want to assure quality by _standardizing_ the process of pizza bakin
 and delivery, but still offering the franchisees sufficient freedom and
 flexibility in how they _prepare_ the pizzas, _e.g.,_ thin vs. thick crust, type of cheese ... _etc_.
 For example,a franchisee in New York would want to 
-prepare the pizza differently than a franchisee in Chicago*.
+prepare the pizza differently than a franchisee in Chicago‡.
 
 To design that kind of framework, we create an abstract `PizzaStore` class.
 This class standardizes the packaging and pizza delivery steps by implementing `orderPizza`.
@@ -80,5 +80,41 @@ At the end, this will be contrasted with our third factory design pattern:
 
 ### Abstract Factory
 
-* I really learnt this when reading this book. I didn't about different
+Finally, we have the _abstract factory_ design pattern. This arose in the book
+in the following context: We get complaints for customers that the regional
+franchisees are using cheap ingredients to cut down their cost and increase
+their margins. As a brand, we pride ourselves on high quality ingredients,
+and to ensure that we create ingredient factories, and force each
+regional franchisee to use the corresponding regional factory. So the NY franchisee
+is forced to use the NY ingredient factory, and so on. The way we implement that
+is by creating an _abstract factory_. This abstract factory has a large interface
+to create abstract cheese, dough, veggies, sauce, meat and so on. Then, we create several
+subclasses of this abstract ingredient factory, each concrete subclass implementing
+to a regional ingredient factory.
+The NY ingredient factory creates thin crust, reggiano cheese ... _etc_, whereas
+the California  ingredient factory uses BBQ sauce, pineapples ... _etc_.‡‡
+
+So the abstract factory is relatively straightforward and easy to explain.
+
+Let's contrast the abstract factory and the factory method:
+
+- The abstract factory is implemented using composition, in that each pizza store holds
+a reference to the corresponding concrete regional factory to get the ingredients
+  from. 
+- The factory method uses inheritance, in that the factory method itself is abstract,
+  and the implementation of object creation is left to subclasses.
+- The abstract factory has a large interface as it creates a _family_ of abstract
+products, so abstract cheese, dough, veggies ... _etc_. It thus has one abstract
+  method per product in the family.
+- The factory method creates objects sharing a _single_ abstraction, and thus
+exposes a single interface.
+  
+So that's all for factories. I'd like to discuss more on dependency inversion,
+but maybe later.
+
+
+‡ I really learnt this when reading this book. I didn't about different
 American ways of making pizza. Check out r/pizza for some additional pizza goodness.
+
+‡‡ I actually don't know anything about California pizza. I just assumed they like
+BBQ and pineapple in their pizza. I know I do. 
