@@ -2,6 +2,8 @@
 This document covers the related factory design patterns: _Simple factory_,
 _factory method_ and _abstract factory_.
 
+### Simple Factory
+
 Let's start with the simple factory design pattern. The context in which
 this arises in the book is the following: You have a concrete `PizzaStore`
 class with a method `orderPizza` that creates a pizza, prepares it,
@@ -45,3 +47,38 @@ The idea of design patterns is to really make your designs robust
 to change. You shouldn't blindly apply them to your entire codebase,
 which will lead to many abstractions, indirections, worse performance
 and wasting time with little payoff.
+
+### Factory Method
+
+Next up is the _factory method_ design pattern. This design pattern was introduced
+in the book in the following context: We have our very successful pizza brand,
+and we want to start franchising it. However, in order to ensure continued
+success, we want to assure quality by _standardizing_ the process of pizza baking, cutting, packaging
+and delivery, but still offering the franchisees sufficient freedom and
+flexibility in how they _prepare_ the pizzas, _e.g.,_ thin vs. thick crust, type of cheese ... _etc_.
+For example,a franchisee in New York would want to 
+prepare the pizza differently than a franchisee in Chicago*.
+
+To design that kind of framework, we create an abstract `PizzaStore` class.
+This class standardizes the packaging and pizza delivery steps by implementing `orderPizza`.
+`orderPizza` doesn't really care about the concrete pizza types, but simply depends
+on the abstract `Pizza` interface. `orderPizza` gets a `Pizza` by calling the _abstract_
+`createPizza` method. The fact that it's abstract is crucial. This means that we're giving
+each franchisee the flexibility of implementing their desired concrete pizza types,
+as appropriate to their region. However, `orderPizza` doesn't really care about any of
+the concrete implementation details. All it cares about is that it's getting a pizza.
+That's the real benefit of the factory method design pattern in this case. It decouples
+the client code `orderPizza` from the creation process, and delegates the creation
+to subclasses of the Abstract Base Class, giving them flexibility to handle the creation
+as they see fit.
+
+** The factory method design pattern encapsulates the creation of objects
+sharing an interface into an abstract method that's implemented by subclasses,
+giving subclasses flexibility in the implementation of object creation **
+
+At the end, this will be contrasted with our third factory design pattern: 
+
+### Abstract Factory
+
+* I really learnt this when reading this book. I didn't about different
+American ways of making pizza. Check out r/pizza for some additional pizza goodness.
