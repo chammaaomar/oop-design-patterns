@@ -46,7 +46,7 @@ some subclasses.
 Additionally, if the prices of the condiments also change, we'll have to open
 up our beverage class again, to change the prices.
 
-One edge the above design doesn't address is: what if a customer wants double
+One edge case the above design doesn't address is: what if a customer wants double
 mocha? That can't be accommodated by a single `hasMocha` flag.
 
 Clearly, the above design can't meet the needs of a growing shop dynamically
